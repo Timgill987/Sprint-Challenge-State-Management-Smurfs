@@ -1,16 +1,8 @@
-import {
-    COLLECTING_SMURF,
-    SMURF_NAME,
-    SMURF_AGE,
-    SMURF_HEIGHT,
-} from "../Actions/smurfActions";
+import { COLLECTING_SMURF, SMURF_INFO } from "../Actions/smurfActions";
 
 const initialState = {
   loadingSmurf: false,
-  name: "",
-  age: "",
-  height: "",
-    
+  smurfInfo: []
 };
 
 export const smurfReducer = (state = initialState, action) => {
@@ -20,21 +12,12 @@ export const smurfReducer = (state = initialState, action) => {
         ...state,
         loadingSmurf: true
       };
-    case SMURF_NAME:
+    case SMURF_INFO:
       return {
         ...state,
-        name: action.payload
+        smurfInfo: action.payload
       };
-      case SMURF_AGE:
-        return {
-         ...state,
-         age: action.payload
-        };
-     case SMURF_HEIGHT:
-       return {
-        ...state,
-        height: action.payload
-      };
+
     default:
       return state;
   }
